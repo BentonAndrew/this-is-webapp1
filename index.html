@@ -1,30 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calculator</title>
+	<title>Real Estate Calculator</title>
 </head>
 <body>
-	<h1>Calculator</h1>
-	<button onclick="calculateBuying()">Buying Land</button>
-	<button onclick="calculateOwned()">Land Already Owned</button>
-	<br>
-	<br>
-	<p id="result"></p>
+	<h1>Real Estate Calculator</h1>
+
+	<form>
+		<label>
+			<input type="radio" name="land" value="buying" checked>
+			Buying Land
+		</label>
+		<label>
+			<input type="radio" name="land" value="existing">
+			Land Already Owned
+		</label>
+		<br>
+
+		<label>
+			Land Cost: $
+			<input type="number" name="land_cost">
+		</label>
+		<br>
+
+		<label>
+			Project Cost to Complete: $
+			<input type="number" name="project_cost">
+		</label>
+		<br>
+
+		<label>
+			Project Cost to Date: $
+			<input type="number" name="project_cost_to_date">
+		</label>
+		<br>
+
+		<label>
+			Amount of Existing Debt: $
+			<input type="number" name="existing_debt">
+		</label>
+		<br>
+
+		<label>
+			Estimated Value of Land: $
+			<input type="number" name="estimated_value">
+		</label>
+		<br>
+
+		<button type="button" onclick="calculate()">Calculate</button>
+	</form>
+
+	<p id="total_cost"></p>
+	<p id="financing"></p>
 
 	<script>
-		function calculateBuying() {
-			var landCost = parseFloat(prompt("Enter the cost of the land:"));
-			var projectCost = parseFloat(prompt("Enter the cost to complete the project:"));
-			var totalProjectCost = landCost + projectCost;
-			document.getElementById("result").innerHTML = "Land Cost: $" + landCost + "<br>Project Cost: $" + projectCost + "<br>Total Project Cost: $" + totalProjectCost;
-		}
+		function calculate() {
+			var land = document.querySelector('input[name="land"]:checked').value;
+			var land_cost = Number(document.querySelector('input[name="land_cost"]').value);
+			var project_cost = Number(document.querySelector('input[name="project_cost"]').value);
+			var project_cost_to_date = Number(document.querySelector('input[name="project_cost_to_date"]').value);
+			var existing_debt = Number(document.querySelector('input[name="existing_debt"]').value);
+			var estimated_value = Number(document.querySelector('input[name="estimated_value"]').value);
 
-		function calculateOwned() {
-			var landCost = parseFloat(prompt("Enter the cost of the land:"));
-			var projectCostToDate = parseFloat(prompt("Enter the project cost to date:"));
-			var projectCostToComplete = parseFloat(prompt("Enter the project cost to complete:"));
-			var totalProjectCost = landCost + projectCostToDate + projectCostToComplete;
-			document.getElementById("result").innerHTML = "Land Cost: $" + landCost + "<br>Project Cost to Date: $" + projectCostToDate + "<br>Project Cost to Complete: $" + projectCostToComplete + "<br>Total Project Cost: $" + totalProjectCost;
+			if (land === 'buying') {
+				var total_cost = land_cost + project_cost;
+			} else {
+				var total_cost = land_cost + project_cost_to_date + project_cost;
+				var existing_debt_amount = Number(document.querySelector('input[name="existing_debt"]').value);
+			}
+
+			if (land === 'buying' || land === 'existing') {
+				var financing_amount = Math.min(0.7 * estimated_value, 0.9 * total_cost);
+				var financing_text = 'Financing amount: $' + financing_amount.toFixed(2);
+			} else {
+				var financing_text = '';
+			}
+
+			var total_cost_text = 'Total project cost: $' + total_cost.toFixed(2);
+			document.getElementById('total_cost').textContent = total_cost_text;
+			document.getElementById('financing').textContent = financing_text;
 		}
 	</script>
 </body>
