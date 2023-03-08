@@ -5,43 +5,26 @@
 </head>
 <body>
 	<h1>Calculator</h1>
-	<input type="number" id="num1">
-	<input type="number" id="num2">
+	<button onclick="calculateBuying()">Buying Land</button>
+	<button onclick="calculateOwned()">Land Already Owned</button>
 	<br>
-	<button onclick="add()">Add</button>
-	<button onclick="subtract()">Subtract</button>
-	<button onclick="multiply()">Multiply</button>
-	<button onclick="divide()">Divide</button>
 	<br>
 	<p id="result"></p>
 
 	<script>
-		function add() {
-			var num1 = parseFloat(document.getElementById("num1").value);
-			var num2 = parseFloat(document.getElementById("num2").value);
-			var result = num1 + num2;
-			document.getElementById("result").innerHTML = "Result: " + result;
+		function calculateBuying() {
+			var landCost = parseFloat(prompt("Enter the cost of the land:"));
+			var projectCost = parseFloat(prompt("Enter the cost to complete the project:"));
+			var totalProjectCost = landCost + projectCost;
+			document.getElementById("result").innerHTML = "Total Project Cost: " + totalProjectCost;
 		}
 
-		function subtract() {
-			var num1 = parseFloat(document.getElementById("num1").value);
-			var num2 = parseFloat(document.getElementById("num2").value);
-			var result = num1 - num2;
-			document.getElementById("result").innerHTML = "Result: " + result;
-		}
-
-		function multiply() {
-			var num1 = parseFloat(document.getElementById("num1").value);
-			var num2 = parseFloat(document.getElementById("num2").value);
-			var result = num1 * num2;
-			document.getElementById("result").innerHTML = "Result: " + result;
-		}
-
-		function divide() {
-			var num1 = parseFloat(document.getElementById("num1").value);
-			var num2 = parseFloat(document.getElementById("num2").value);
-			var result = num1 / num2;
-			document.getElementById("result").innerHTML = "Result: " + result;
+		function calculateOwned() {
+			var landCost = parseFloat(prompt("Enter the cost of the land:"));
+			var projectCostToDate = parseFloat(prompt("Enter the project cost to date:"));
+			var projectCostToComplete = parseFloat(prompt("Enter the project cost to complete:"));
+			var totalProjectCost = landCost + projectCostToDate + projectCostToComplete;
+			document.getElementById("result").innerHTML = "Total Project Cost: " + totalProjectCost;
 		}
 	</script>
 </body>
