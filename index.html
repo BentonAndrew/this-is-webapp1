@@ -16,7 +16,7 @@
 			var landCost = parseFloat(prompt("Enter the cost of the land:"));
 			var projectCost = parseFloat(prompt("Enter the cost to complete the project:"));
 			var totalProjectCost = landCost + projectCost;
-			document.getElementById("result").innerHTML = "Total Project Cost: " + totalProjectCost;
+			document.getElementById("result").innerHTML = "Land Cost: $" + landCost + "<br>Project Cost: $" + projectCost + "<br>Total Project Cost: $" + totalProjectCost;
 		}
 
 		function calculateOwned() {
@@ -24,8 +24,9 @@
 			var projectCostToDate = parseFloat(prompt("Enter the project cost to date:"));
 			var projectCostToComplete = parseFloat(prompt("Enter the project cost to complete:"));
 			var totalProjectCost = landCost + projectCostToDate + projectCostToComplete;
-			document.getElementById("result").innerHTML = "Total Project Cost: " + totalProjectCost;
+			document.getElementById("result").innerHTML = "Land Cost: $" + landCost + "<br>Project Cost to Date: $" + projectCostToDate + "<br>Project Cost to Complete: $" + projectCostToComplete + "<br>Total Project Cost: $" + totalProjectCost;
 		}
 	</script>
 </body>
 </html>
+
