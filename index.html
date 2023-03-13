@@ -54,6 +54,7 @@
 	<p id="total_cost"></p>
 	<p id="financing"></p>
 	<p id="equity_required"></p>
+	<p id="cash_to_close"></p>
 
 	<script>
 		function calculate() 
@@ -92,11 +93,13 @@
 			{
   			equity_required = 0;
 			}
+			var cash_to_close = equity_required + (.055 * financing_amount.toFixed(2));
 			var equity_required_text = 'Equity Requirement: $' + equity_required.toFixed(2);
 			var total_cost_text = 'Total project cost: $' + total_cost.toFixed(2);
 			document.getElementById('total_cost').textContent = total_cost_text;
 			document.getElementById('financing').textContent = financing_text;
 			document.getElementById('equity_required').textContent = equity_required_text;
+			document.getElementById('cash_to_close').textContent = cash_to_close_text;
 		}
 	</script>
 </body>
