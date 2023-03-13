@@ -84,9 +84,15 @@
 				var financing_text = '';
 			}
 			
-			var equity_required = Math.max(total_cost * 0.1, total_cost - financing_amount);
-			var equity_required_text = 'Equity Required: $' + equity_required.toFixed(2);
-			document.getElementById('equity_required').textContent = equity_required_text;
+			var equity_required = Math.max(total_cost * 0.1, total_cost - financing_amount) - (land_cost - existing_debt);
+			if (equity_required > 0) 
+			{
+  			equity_required = equity_required;
+			} else 
+			{
+  			equity_required = 0;
+			}
+			var equity_required_text = 'Equity Requirement: $' + equity_required.toFixed(2);
 			var total_cost_text = 'Total project cost: $' + total_cost.toFixed(2);
 			document.getElementById('total_cost').textContent = total_cost_text;
 			document.getElementById('financing').textContent = financing_text;
