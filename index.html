@@ -79,7 +79,7 @@
 			if (land === 'buying' || land === 'existing') 
 			{
 				var financing_amount = Math.min(0.7 * estimated_value, 0.9 * total_cost);
-				var financing_text = 'Construction Loan Amount: $' + financing_amount.toFixed(2);
+				var financing_text = 'Construction Loan Amount: $' + financing_amount.toLocaleString(2);
 			} else 
 			{
 				var financing_text = '';
@@ -93,10 +93,10 @@
 			{
   			equity_required = 0;
 			}
-			var cash_to_close = equity_required + (.055 * financing_amount.toFixed(2));
-			var cash_to_close_text = 'Cash to Close: $' + cash_to_close.toFixed(2);
-			var equity_required_text = 'Equity Requirement: $' + equity_required.toFixed(2);
-			var total_cost_text = 'Total project cost: $' + total_cost.toFixed(2);
+			var cash_to_close = equity_required + (.055 * financing_amount.toLocaleString(2));
+			var cash_to_close_text = 'Cash to Close: $' + cash_to_close.toLocaleString(2);
+			var equity_required_text = 'Equity Requirement: $' + equity_required.toLocaleString(2);
+			var total_cost_text = 'Total project cost: $' + total_cost.toLocaleString(2);
 			document.getElementById('total_cost').textContent = total_cost_text;
 			document.getElementById('financing').textContent = financing_text;
 			document.getElementById('equity_required').textContent = equity_required_text;
