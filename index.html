@@ -72,16 +72,6 @@
 			var minimum_equity_required = Math.max((total_cost*0.1),(financing_amount-total_cost))
 			var equity_invested_at_acq = land_cost - existing_debt;
 			var equity_required = minimum_equity_required - equity_invested_at_acq;
-			
-			if (equity_required > 0) 
-			{
-  			equity_required = equity_required;
-			} 
-			else 
-			{
-  			equity_required = 0;
-			}
-	
 			var cash_to_close = equity_required + (.055 * financing_amount);
 			var cash_to_close_text = 'Cash to Close: $' + cash_to_close.toLocaleString(2);
 			var minimum_equity_required_text = 'Minimum Equity Requirement: $' + minimum_equity_required.toLocaleString(2);
