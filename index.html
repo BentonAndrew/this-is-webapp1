@@ -91,12 +91,10 @@
 			var equity_required = minimum_equity_required - equity_invested_at_acq;
 			var cash_to_close = equity_required + (.055 * financing_amount);
 			var cash_to_close_text = 'Cash to Close: $' + cash_to_close.toLocaleString(2);
-			var minimum_equity_required_text = 'Minimum Equity Requirement: $' + minimum_equity_required.toLocaleString(2);
 			var equity_required_text = 'Additional Equity Required: $' + equity_required.toLocaleString(2);
 			var total_cost_text = 'Total project cost: $' + total_cost.toLocaleString(2);
 			document.getElementById('total_cost').textContent = total_cost_text;
 			document.getElementById('financing').textContent = financing_text;
-			document.getElementById('minimum_equity_required').textContent = minimum_equity_required_text;
 			document.getElementById('equity_required').textContent = equity_required_text;
 			document.getElementById('cash_to_close').textContent = cash_to_close_text;
 		}
