@@ -70,7 +70,16 @@
 			var financing_amount = Math.min(0.9 * total_cost,(estimated_value*0.7),(existing_debt+land_cost+project_cost_to_date+project_cost_to_complete));
 			var financing_text = 'Construction Loan Amount: $' + financing_amount.toLocaleString(2);
 			var minimum_equity_required = Math.max((total_cost*0.1),(financing_amount-total_cost))
-			var equity_invested_at_acq = land_cost - existing_debt;
+			
+			if(land == 'existing')
+			{
+				var equity_invested_at_acq = land_cost - existing_debt;
+			}
+			else
+			{
+				var equity_invested_at_acq = 0;
+			}
+			
 			var equity_required = minimum_equity_required - equity_invested_at_acq;
 			var cash_to_close = equity_required + (.055 * financing_amount);
 			var cash_to_close_text = 'Cash to Close: $' + cash_to_close.toLocaleString(2);
